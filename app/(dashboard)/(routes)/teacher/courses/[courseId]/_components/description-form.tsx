@@ -8,7 +8,6 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,7 +45,7 @@ export default function DescriptionForm({ initialData, courseId }: Props) {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Title updated");
+      toast.success("Course updated");
       toggleEditing();
       router.refresh();
     } catch {
